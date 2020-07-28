@@ -10,8 +10,10 @@
   @Html.TextBoxFor(model = model.Name)
   @Html.LabelFor(model = model.Type)
   @Html.TextBoxFor(model = model.Type)
-  @Html.LabelFor(model = model.Gender)
-  @Html.TextBoxFor(model = model.Gender)
+  @Html.DropDownList("Gender",
+    new SelectList(Enum.GetValues(typeof(Gender))),
+    "Gender",
+    new { @class = "form-control" })
   @Html.LabelFor(model = model.Breed)
   @Html.TextBoxFor(model = model.Breed)
   <input type="submit" value="Add new Animal" />
