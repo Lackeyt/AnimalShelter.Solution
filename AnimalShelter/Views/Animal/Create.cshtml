@@ -8,15 +8,19 @@
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.Name)
-  @Html.TextBoxFor(model => model.Name)
-  @Html.LabelFor(model => model.Type)
-  @Html.TextBoxFor(model => model.Type)
-  @Html.DropDownList("AnimalGender",
-    new SelectList(Enum.GetValues(typeof(Gender))),
-    "Gender",
+  @Html.TextBoxFor(model => model.Name, new {@class = "form-control"})
+  @Html.LabelFor((model => model.Type))
+  @Html.DropDownList("Type",
+    new SelectList(Enum.GetValues(typeof(AnimalType))),
+    "Select Type",
     new { @class = "form-control" })
-  @Html.LabelFor(model => model.Breed)
-  @Html.TextBoxFor(model => model.Breed)
-  <input type="submit" value="Add new Animal" />
+  @Html.LabelFor((model => model.Gender))
+  @Html.DropDownList("Gender",
+    new SelectList(Enum.GetValues(typeof(AnimalGender)).Cast<AnimalGender>().Where(e => e != AnimalGender.Unknown)),
+    "Select Gender",
+    new { @class = "form-control" })
+  @Html.LabelFor((model => model.Breed))
+  @Html.TextBoxFor((model => model.Breed), new {@class = "form-control"})
+  <input type="submit" value="Add New Animal" />
 }
-<p>@Html.ActionLink("Show all Animals", "Index")</p>
+<p>@Html.ActionLink("Show All Animals", "Index")</p>

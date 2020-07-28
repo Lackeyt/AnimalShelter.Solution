@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AnimalShelter.Models
 {
@@ -7,15 +7,25 @@ namespace AnimalShelter.Models
   {
     public int AnimalId { get; set; }
     public string Name { get; set; }
-    public string Type { get; set; }
-    public Gender AnimalGender { get; set; }
-    public DateTime DateOfAdmittance { get; set; }
-    public string Breed { get; set; }    
+    public AnimalType Type { get; set; }
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public AnimalGender Gender { get; set; }
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public string Breed { get; set; }
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int DateOfAdmittance { get; set; }
   }
 
-  public enum Gender
+  public enum AnimalGender
   {
+  Unknown,
   Male,
   Female    
+  }
+
+  public enum AnimalType
+  {
+    Dog,
+    Cat
   }
 }
