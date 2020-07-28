@@ -12,10 +12,11 @@ namespace AnimalShelter.Models
     public AnimalGender Gender { get; set; }
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public string Breed { get; set; }
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int DateOfAdmittance { get; set; }
-  }
 
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public DateTime DateOfAdmittance { get; set; }
+  }
+  
   public enum AnimalGender
   {
   Unknown,
