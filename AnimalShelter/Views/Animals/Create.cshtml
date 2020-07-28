@@ -2,20 +2,21 @@
   Layout = "_Layout";
 }
 
-@model AnimalShelter.Models.AnimalShelter
+@model AnimalShelter.Models.Animal
+@using AnimalShelter.Models;
 <h4>Admit a new animal to the shelter</h4>
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model = model.Name)
-  @Html.TextBoxFor(model = model.Name)
-  @Html.LabelFor(model = model.Type)
-  @Html.TextBoxFor(model = model.Type)
-  @Html.DropDownList("Gender",
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+  @Html.LabelFor(model => model.Type)
+  @Html.TextBoxFor(model => model.Type)
+  @Html.DropDownList("AnimalGender",
     new SelectList(Enum.GetValues(typeof(Gender))),
     "Gender",
     new { @class = "form-control" })
-  @Html.LabelFor(model = model.Breed)
-  @Html.TextBoxFor(model = model.Breed)
+  @Html.LabelFor(model => model.Breed)
+  @Html.TextBoxFor(model => model.Breed)
   <input type="submit" value="Add new Animal" />
 }
 <p>@Html.ActionLink("Show all Animals", "Index")</p>

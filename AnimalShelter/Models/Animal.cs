@@ -10,11 +10,12 @@ namespace AnimalShelter.Models
     public string Type { get; set; }
     public Gender AnimalGender { get; set; }
     public DateTime DateOfAdmittance { get; set; }
-    public string Breed { get; set; }
-    public enum Gender
-    {
-    Male,
-    Female    
-    }
+    public string Breed { get; set; }    
+  }
+
+  public enum Gender
+  {
+  Male,
+  Female    
   }
 }
